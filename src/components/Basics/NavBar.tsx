@@ -1,11 +1,11 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import logo from "@/assets/sLogo.png";
-import { ModeToggle } from "../ModeToggle";
-import { useUser } from "@/context/UserContext";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+'use client';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
+import logo from '@/assets/sLogo.png';
+import { ModeToggle } from '../ModeToggle';
+import { useUser } from '@/context/UserContext';
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 
 import {
   DropdownMenu,
@@ -15,7 +15,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
+} from '../ui/dropdown-menu';
 import {
   Drawer,
   DrawerClose,
@@ -24,15 +24,15 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/drawer";
-import { logOut } from "@/services/AuthService";
-import { protectedRoutes } from "@/constant";
-import { Button } from "../ui/button";
-import NavbarLoadingSkeleton from "./UserNavSkeleton";
-import { LogOut, Menu, Search, X } from "lucide-react";
-import { InteractiveHoverButton } from "../button/hover-button";
-import SearchInput from "../modules/Ideas/IdeaDetails/SearchInput";
-import LeafAnimation from "../HomeComponents/LeafAnimation";
+} from '@/components/ui/drawer';
+import { logOut } from '@/services/AuthService';
+import { protectedRoutes } from '@/constants';
+import { Button } from '../ui/button';
+import NavbarLoadingSkeleton from './UserNavSkeleton';
+import { LogOut, Menu, Search, X } from 'lucide-react';
+import { InteractiveHoverButton } from '../button/hover-button';
+import SearchInput from '../modules/Ideas/IdeaDetails/SearchInput';
+import LeafAnimation from '../HomeComponents/LeafAnimation';
 
 const NavBar = () => {
   const router = useRouter();
@@ -42,27 +42,27 @@ const NavBar = () => {
   const handleLogOut = async () => {
     await logOut();
     setUser(null);
-    if (protectedRoutes.some((route) => pathname.match(route))) {
-      router.push("/");
+    if (protectedRoutes.some(route => pathname.match(route))) {
+      router.push('/');
     }
   };
 
   const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "Ideas", path: "/ideas" },
-    { name: "Blogs", path: "/blogs" },
-    { name: "About Us", path: "/about-us" },
-    { name: "Contact Us", path: "/contact-us" },
-    { name: "Privacy", path: "/privacy-policy" },
+    { name: 'Home', path: '/' },
+    { name: 'Ideas', path: '/ideas' },
+    { name: 'Blogs', path: '/blogs' },
+    { name: 'About Us', path: '/about-us' },
+    { name: 'Contact Us', path: '/contact-us' },
+    { name: 'Privacy', path: '/privacy-policy' },
     ...(user
-      ? [{ name: "Dashboard", path: `/${user.role.toLowerCase()}/dashboard` }]
+      ? [{ name: 'Dashboard', path: `/${user.role.toLowerCase()}/dashboard` }]
       : []),
   ];
 
   return (
     <header className="sticky top-0 z-20 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 pb-3">
       {/* <Marque/> */}
-     <LeafAnimation/>
+      <LeafAnimation />
       <div className="container mx-auto h-20 px-5 md:px-10">
         <div className="relative h-16 md:h-20">
           {/* <!-- Menu & Small Device for Small Device--> */}
@@ -102,8 +102,8 @@ const NavBar = () => {
                           href={path}
                           className={
                             pathname === path
-                              ? "rounded-md border border-black text-green-500 dark:text-white  dark:border-green-500 px-3 py-2 text-sm font-medium"
-                              : "rounded-md border border-transparent px-3 py-2 text-sm font-medium hover:bg-green-500 hover:text-black"
+                              ? 'rounded-md border border-black text-green-500 dark:text-white  dark:border-green-500 px-3 py-2 text-sm font-medium'
+                              : 'rounded-md border border-transparent px-3 py-2 text-sm font-medium hover:bg-green-500 hover:text-black'
                           }
                         >
                           {name}
@@ -147,8 +147,8 @@ const NavBar = () => {
                         href={path}
                         className={
                           pathname === path
-                            ? "border-b-2 border-green-300 dark:text-white"
-                            : "border-b-0  dark:text-white hover:text-green-700 dark:hover:text-green-300"
+                            ? 'border-b-2 border-green-300 dark:text-white'
+                            : 'border-b-0  dark:text-white hover:text-green-700 dark:hover:text-green-300'
                         }
                       >
                         {name}
@@ -168,7 +168,7 @@ const NavBar = () => {
                 <div className="flex-1 hidden xl:flex lg:my-2 xl:my-0">
                   <SearchInput />
                 </div>
-                <Link className="flex lg:hidden animate-pulse" href={"/ideas"}>
+                <Link className="flex lg:hidden animate-pulse" href={'/ideas'}>
                   <Search />
                 </Link>
                 <ModeToggle />
@@ -180,7 +180,11 @@ const NavBar = () => {
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
                         <Avatar>
-                          <AvatarImage src={user.image} alt="@shadcn" className="cursor-pointer"/>
+                          <AvatarImage
+                            src={user.image}
+                            alt="@shadcn"
+                            className="cursor-pointer"
+                          />
                           <AvatarFallback>CN</AvatarFallback>
                         </Avatar>
                       </DropdownMenuTrigger>
@@ -188,11 +192,15 @@ const NavBar = () => {
                         <DropdownMenuLabel>My Account</DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         <DropdownMenuGroup>
-                          <Link href="/profile" >
-                            <DropdownMenuItem className="cursor-pointer">Profile</DropdownMenuItem>
+                          <Link href="/profile">
+                            <DropdownMenuItem className="cursor-pointer">
+                              Profile
+                            </DropdownMenuItem>
                           </Link>
-                          <Link href={`/${user.role.toLowerCase()}/dashboard`} >
-                            <DropdownMenuItem className="cursor-pointer">Dashboard</DropdownMenuItem>
+                          <Link href={`/${user.role.toLowerCase()}/dashboard`}>
+                            <DropdownMenuItem className="cursor-pointer">
+                              Dashboard
+                            </DropdownMenuItem>
                           </Link>
                         </DropdownMenuGroup>
                         <DropdownMenuSeparator />

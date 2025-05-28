@@ -26,7 +26,7 @@ import {
   DrawerTrigger,
 } from '@/components/ui/drawer';
 import { logOut } from '@/services/AuthService';
-import { protectedRoutes } from '@/constant';
+import { protectedRoutes } from '@/constants';
 import { Button } from '../ui/button';
 import NavbarLoadingSkeleton from './UserNavSkeleton';
 import { LogOut, Menu, X } from 'lucide-react';
@@ -96,8 +96,8 @@ const DashboardNavBar = () => {
                           href={path}
                           className={
                             pathname === path
-                              ? "rounded-md border border-black text-green-500 dark:text-white  dark:border-green-500 px-3 py-2 text-sm font-medium"
-                              : "rounded-md border border-transparent px-3 py-2 text-sm font-medium hover:bg-green-500 hover:text-black"
+                              ? 'rounded-md border border-black text-green-500 dark:text-white  dark:border-green-500 px-3 py-2 text-sm font-medium'
+                              : 'rounded-md border border-transparent px-3 py-2 text-sm font-medium hover:bg-green-500 hover:text-black'
                           }
                         >
                           {name}
@@ -140,8 +140,8 @@ const DashboardNavBar = () => {
                       href={path}
                       className={
                         pathname === path
-                          ? "border-b-2 border-green-300 dark:text-white"
-                          : "border-b-0  dark:text-white hover:text-green-700 dark:hover:text-green-300"
+                          ? 'border-b-2 border-green-300 dark:text-white'
+                          : 'border-b-0  dark:text-white hover:text-green-700 dark:hover:text-green-300'
                       }
                     >
                       {name}
@@ -191,9 +191,7 @@ const DashboardNavBar = () => {
                   </>
                 ) : (
                   <Link href="/login">
-                    <InteractiveHoverButton
-                      className="bg-green-500 font-bold rounded-lg px-4 py-2"
-                    >
+                    <InteractiveHoverButton className="bg-green-500 font-bold rounded-lg px-4 py-2">
                       Log In
                     </InteractiveHoverButton>
                   </Link>
