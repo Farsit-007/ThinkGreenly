@@ -25,7 +25,7 @@ solutions.
 - **Idea Management**: Submit, draft, comment and vote on ideas (Reddit-style).
 - **Admin Dashboard**: Approve/reject ideas, manage categories.
 - **Responsive UI**: Built with Tailwind CSS & Shadcn UI.
-- **Payment Integration**: SSLCommerz for "Paid Ideas."
+- **Payment Integration**: SSLCommerz for "Paid Ideas"
 
 ## 🏗️ Tech Stack
 
