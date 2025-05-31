@@ -2,7 +2,6 @@
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
@@ -18,7 +17,7 @@ import {
   FormLabel,
   FormMessage,
 } from '../ui/form';
-import { LoaderPinwheel } from 'lucide-react';
+
 
 export default function ContactPage() {
   const form = useForm({ resolver: zodResolver(emailValidationSchema) });
@@ -57,6 +56,7 @@ export default function ContactPage() {
       toast.success("Thank you. We'll get back to you as soon as possible.");
       reset();
     } catch (error) {
+      console.error(error)
       toast.error('Ahh, something went wrong. Please try again.');
     }
   };
