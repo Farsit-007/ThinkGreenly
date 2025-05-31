@@ -59,7 +59,7 @@ const TestimonialSection = async () => {
 
 
               <div className="grid grid-cols-3 gap-2 transform group-hover:scale-105 transition-transform">
-                {idea.images?.map((img: any, index: number) => (
+                {idea.images?.slice(0,3).map((img: any, index: number) => (
                   <div 
                     key={index}
                     className="relative aspect-square overflow-hidden rounded-lg border-2 border-green-50 dark:border-emerald-900"
