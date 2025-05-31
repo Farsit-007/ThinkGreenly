@@ -86,7 +86,7 @@ const SearchInput = () => {
                 </Link>
               ))}
 
-              {ideas.length > 5 && (
+              {ideas?.length > 5 && (
                 <div className="p-2 border-t">
                   <Link
                     href={`/ideas?searchTerm=${encodeURIComponent(
@@ -95,7 +95,7 @@ const SearchInput = () => {
                     className="w-full"
                   >
                     <Button type="submit" variant="outline" className="w-full">
-                      See More ({ideas.length - 5}+ results)
+                      See More ({ideas?.length - 5}+ results)
                     </Button>
                   </Link>
                 </div>
