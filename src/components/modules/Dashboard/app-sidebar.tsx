@@ -7,6 +7,7 @@ import {
   LayoutDashboard,
   PlusCircle,
   SquareChartGantt,
+  Tornado,
   UserCog,
   UsersRoundIcon,
 } from 'lucide-react';
@@ -54,19 +55,24 @@ export function AppSidebar({
 
   const adminMenu = [
     {
-      title: 'Manage Ideas',
-      url: '/admin/all-ideas',
+      title: "Manage Ideas",
+      url: "/admin/all-ideas",
       icon: SquareChartGantt,
     },
     {
-      title: 'Manage Users',
-      url: '/admin/all-users',
+      title: "Manage Users",
+      url: "/admin/all-users",
       icon: UsersRoundIcon,
     },
     {
-      title: 'Manage Payments',
-      url: '/admin/payments',
+      title: "Manage Payments",
+      url: "/admin/payments",
       icon: DollarSign,
+    },
+    {
+      title: "Manage Categories",
+      url: "/admin/categories",
+      icon: Tornado,
     },
   ];
 
